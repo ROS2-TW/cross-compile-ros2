@@ -25,8 +25,15 @@ Comment out all examples in "src/eProsima/Fast-RTPS/examples/CMakeLists.txt"
 
 ##Reference
 
-In order to fully enable the C++11 functionality, we decide to compile the cross compiler. The following article will help you very much if you also want to do this: 
+###Build custom cross compiler
+In order to fully enable the C++11 functionality, we decide to compile the cross compiler. The following article could help you if you need to do so: 
 
 * https://blog.kitware.com/cross-compiling-for-raspberry-pi/
 
 Remeber to set the "Architecture level" to "armv7-a", or otherwise you may lost some C++11 abilities.
+
+###Copy target root file system
+
+Copy the root file system directly from SD card may break the symbolic link of your copied root file system, please check this Stack Overflow thread to see how to deal with this problem by using "rsync" command:
+
+* http://stackoverflow.com/questions/19162072/installing-raspberry-pi-cross-compiler/19269715#19269715
