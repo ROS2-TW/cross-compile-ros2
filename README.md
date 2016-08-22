@@ -23,6 +23,20 @@ Comment out all examples in "src/eProsima/Fast-RTPS/examples/CMakeLists.txt"
 
 ###2. Can only compile without test functions
 
+###3. Modify file "libpthread.so" in rootfs
+
+**file**
+
+${ROOTFS}/usr/lib/arm-linux-gnueabihf/libpthread.so
+
+**replace**
+
+GROUP ( /lib/arm-linux-gnueabihf/libpthread.so.0 /usr/lib/arm-linux-gnueabihf/libpthread_nonshared.a )
+
+**to**
+
+GROUP ( libpthread.so.0 libpthread_nonshared.a )
+
 ##Reference
 
 ###Build custom cross compiler
