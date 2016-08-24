@@ -15,7 +15,7 @@ cd ros2_ws
 
 make cross-compile
 
-#Issue
+##Issue
 
 ###1. Can't build FastRTPS examples
 
@@ -38,7 +38,14 @@ In order to fully enable the C++11 functionality, we decide to compile the cross
 
 * https://blog.kitware.com/cross-compiling-for-raspberry-pi/
 
-Remeber to set the "Architecture level" to "armv7-a", or otherwise you may lost some C++11 abilities.
+ct-ng menuconfig:
+
+* Set "Architecture level" to "armv7-a" for fully enable C++11 features
+
+* C compiler:
+ * Check "C++"
+ * Set "gcc extra config" to "--with-float=hard"
+
 
 ###Copy target root file system
 
