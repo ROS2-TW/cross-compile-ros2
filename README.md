@@ -40,7 +40,10 @@ In order to fully enable the C++11 functionality, we decide to compile the cross
 
 ct-ng menuconfig:
 
-* Set "Architecture level" to "armv7-a" for fully enable C++11 features
+* Target options: 
+ * Set "Architecture level" to "armv7-a" for fully enable C++11 features
+ * Set "Use specific FPU" to "vfp"
+ * Set "Floating point" to "hardware (FPU)"
 
 * C compiler:
  * Check "C++"
