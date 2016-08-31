@@ -11,9 +11,6 @@ add_definitions(-DCOMPILE_EXAMPLES=OFF)
 
 set(CMAKE_VERBOSE_MAKEGILE ON)
 
-set(TARGET_ROOT /home/shengwen-asus/cross-compile-ros2/rootfs)
-set(CROSS_COMPILE_ROOT /home/shengwen-asus/cross-compile-ros2/cross_compiler/arm-unknown-linux-gnueabihf/arm-unknown-linux-gnueabihf/sysroot)
-
 set(
   CMAKE_FIND_ROOT_PATH
   ${CROSS_COMPILE_ROOT}
