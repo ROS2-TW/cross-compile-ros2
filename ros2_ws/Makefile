@@ -22,4 +22,4 @@ bridge: pkg_config
 	src/ament/ament_tools/scripts/ament.py build --symlink-install --only-package ros1_bridge --cmake-args -DCMAKE_TOOLCHAIN_FILE=$(PWD)/rostoolchain.cmake -DCMAKE_CROSSCOMPILING=1
 
 pkg_config:
-	#sh ../tools/set_pkg_config.sh
+	sh ../tools/set_pkg_config.sh
