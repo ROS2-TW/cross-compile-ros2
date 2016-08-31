@@ -1,15 +1,10 @@
 C_COMPILER_PATH=${PWD}/../cross_compiler/arm-unknown-linux-gnueabihf/bin/arm-unknown-linux-gnueabihf-gcc
 CXX_COMPILER_PATH=${PWD}/../cross_compiler/arm-unknown-linux-gnueabihf/bin/arm-unknown-linux-gnueabihf-g++
 
-ROOTFS_PATH=${PWD}/../rootfs
-CROSS_COMPILER_SYSROOT=${PWD}/../cross_compiler/arm-unknown-linux-gnueabihf/arm-unknown-linux-gnueabihf/sysroot
-
-CMAKE_FLAGS=-DCMAKE_TOOLCHAIN_FILE=${PWD}/rostoolchain.cmake \
-	-DCMAKE_C_COMPILER=${C_COMPILER_PATH} \
+CMAKE_FLAGS=-DCMAKE_C_COMPILER=${C_COMPILER_PATH} \
 	-DCMAKE_CXX_COMPILER=${CXX_COMPILER_PATH} \
-	-DTARGET_ROOT=${ROOTFS_PATH} \
-	-DCROSS_COMPILE_ROOT=${CROSS_COMPILER_SYSROOT} \
 	-DCOMPILE_EXAMPLES=OFF \
+	-DCMAKE_TOOLCHAIN_FILE=${PWD}/rostoolchain.cmake \
 	-DCMAKE_CROSSCOMPILING=1
 
 cross-compile: pkg_config
@@ -20,6 +15,10 @@ intra: pkg_config
 
 bridge: pkg_config
 	src/ament/ament_tools/scripts/ament.py build --symlink-install --only-package ros1_bridge --cmake-args -DCMAKE_TOOLCHAIN_FILE=$(PWD)/rostoolchain.cmake -DCMAKE_CROSSCOMPILING=1
+
+sensor: pkg_config
+	src/ament/ament_tools/scripts/ament.py build --symlink-install --only-package sensor_msgs --cmake-args ${CMAKE_FLAGS} 
+
 
 pkg_config:
 	sh ../tools/set_pkg_config.sh

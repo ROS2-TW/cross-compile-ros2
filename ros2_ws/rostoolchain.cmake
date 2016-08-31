@@ -11,13 +11,20 @@ add_definitions(-DCOMPILE_EXAMPLES=OFF)
 
 set(CMAKE_VERBOSE_MAKEGILE ON)
 
+#Get parent directory
+set(PROJECT_ROOT ${CMAKE_CURRENT_LIST_DIR})
+get_filename_component(PROJECT_ROOT ${PROJECT_ROOT} DIRECTORY)
+
+set(TARGET_ROOT ${PROJECT_ROOT}/rootfs)
+set(CROSS_COMPILE_ROOT ${PROJECT_ROOT}/cross_compiler/arm-unknown-linux-gnueabihf/arm-unknown-linux-gnueabihf/sysroot)
+
 set(
   CMAKE_FIND_ROOT_PATH
   ${CROSS_COMPILE_ROOT}
   ${TARGET_ROOT}
 )
 
-set(BOOST_INCLUDEDIR ${TARGET_ROOT}/usr/include/)
+set(BOOST_INCLUDEDIR ${TARGET_ROOT}/usr/include/boost/)
 set(BOOST_LIBRARYDIR ${TARGET_ROOT}/usr/lib/arm-linux-gnueabihf/)
 
 #set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${TARGET_ROOT}/opt/ros/kinetic/share/roscpp)
