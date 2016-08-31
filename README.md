@@ -60,3 +60,8 @@ Copy the root file system directly from SD card may break the symbolic link of y
 
 * http://stackoverflow.com/questions/38038490/cmake-cross-compile-cant-find-library?answertab=active#tab-top 
 * https://autotools.io/pkgconfig/cross-compiling.html
+
+###Fixing -rpath-link issues with cross-compilers
+
+* https://sysprogs.com/w/fixing-rpath-link-issues-with-cross-compilers/ 
+
