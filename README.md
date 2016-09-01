@@ -45,6 +45,9 @@ ct-ng menuconfig:
  * Set "Use specific FPU" to "vfp"
  * Set "Floating point" to "hardware (FPU)"
 
+* Toolchain options
+ * Set "Tuple's vendor string" to "none"
+
 * C compiler:
  * Check "C++"
  * Set "gcc extra config" to "--with-float=hard"
@@ -55,3 +58,13 @@ ct-ng menuconfig:
 Copy the root file system directly from SD card may break the symbolic link of your copied root file system, please check this Stack Overflow thread to see how to deal with this problem by using "rsync" command:
 
 * http://stackoverflow.com/questions/19162072/installing-raspberry-pi-cross-compiler/19269715#19269715
+
+###PKG-CONFIG setting
+
+* http://stackoverflow.com/questions/38038490/cmake-cross-compile-cant-find-library?answertab=active#tab-top 
+* https://autotools.io/pkgconfig/cross-compiling.html
+
+###Fixing -rpath-link issues with cross-compilers
+
+* https://sysprogs.com/w/fixing-rpath-link-issues-with-cross-compilers/ 
+
