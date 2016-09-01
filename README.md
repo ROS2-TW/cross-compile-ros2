@@ -45,6 +45,9 @@ ct-ng menuconfig:
  * Set "Use specific FPU" to "vfp"
  * Set "Floating point" to "hardware (FPU)"
 
+* Toolchain options
+ * Set "Tuple's vendor string" to "none"
+
 * C compiler:
  * Check "C++"
  * Set "gcc extra config" to "--with-float=hard"
