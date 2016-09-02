@@ -1,15 +1,17 @@
 # ROS2 cross compiling for raspberry pi3
 
-##Environment requirement
+##Tested environment
 * Host system: Ubuntu 16.04
 * Target system: Ubuntu mate 16.04
+* Cross compiler: Linaro GNU toolchain 5.31
 
-## Installation
+## Insturctions
 
-### 1.Install cross compiler
-### 2.Clone the repo
-### 3.Get pi image (Ubuntu Mate 16.04)
-### 4.Cross compile ROS2
+### 1.Install Linaro GNU toolchain
+### 2.Prepare target root files system
+### 3.Do cross compiling and have fun!
+
+sh ./setup.sh
 
 cd ros2_ws
 
@@ -17,19 +19,7 @@ make cross-compile
 
 ##Issue
 
-###1. Can't build FastRTPS examples
-
-Comment out all examples in "src/eProsima/Fast-RTPS/examples/CMakeLists.txt"
-
-###2. Can only compile without test functions
-
-###3. Need to modify "pyconfig.h"
-
-sudo vi ${rootfs}/usr/include/python3.5m/pyconfig.h
-
-change "#include <arm-linux-gnueabihf/python3.5m/pyconfig.h>"
-
-to "#include <../arm-linux-gnueabihf/python3.5m/pyconfig.h>"
+###Can only compile without test functions and examples
 
 ##Reference
 
@@ -38,25 +28,16 @@ to "#include <../arm-linux-gnueabihf/python3.5m/pyconfig.h>"
 * https://releases.linaro.org/components/toolchain/binaries/5.3-2016.05/arm-linux-gnueabihf/
 * https://releases.linaro.org/components/toolchain/binaries/5.3-2016.05/
 
-###Build custom cross compiler
-In order to fully enable the C++11 functionality, we decide to compile the cross compiler. The following article could help you if you need to do so: 
+###Cross Compiler
+
+C++11 requirescompiler architecture level higher than "armv6":
 
 * https://blog.kitware.com/cross-compiling-for-raspberry-pi/
 
-ct-ng menuconfig:
+###Debian/Ubuntu multi-arch issue
 
-* Target options: 
- * Set "Architecture level" to "armv7-a" for fully enable C++11 features
- * Set "Use specific FPU" to "vfp"
- * Set "Floating point" to "hardware (FPU)"
-
-* Toolchain options
- * Set "Tuple's vendor string" to "rpi"
-
-* C compiler:
- * Check "C++"
- * Set "gcc extra config" to "--with-float=hard"
-
+* https://www.raspberrypi.org/forums/viewtopic.php?f=33&t=123177
+* https://github.com/raspberrypi/tools/issues/42
 
 ###Copy target root file system
 
@@ -64,7 +45,7 @@ Copy the root file system directly from SD card may break the symbolic link of y
 
 * http://stackoverflow.com/questions/19162072/installing-raspberry-pi-cross-compiler/19269715#19269715
 
-###PKG-CONFIG setting
+###pkg-config wrapper for cross compiling
 
 * http://stackoverflow.com/questions/38038490/cmake-cross-compile-cant-find-library?answertab=active#tab-top 
 * https://autotools.io/pkgconfig/cross-compiling.html
@@ -72,11 +53,6 @@ Copy the root file system directly from SD card may break the symbolic link of y
 ###Fixing -rpath-link issues with cross-compilers
 
 * https://sysprogs.com/w/fixing-rpath-link-issues-with-cross-compilers/
-
-###Multi-Arch issue
-
-* https://www.raspberrypi.org/forums/viewtopic.php?f=33&t=123177
-* https://github.com/raspberrypi/tools/issues/42
 
 ###Else
 
