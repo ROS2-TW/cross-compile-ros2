@@ -1,15 +1,15 @@
-# ROS2 cross compiling for raspberry pi3
+# ROS2 Cross compiling
 
 ##Tested environment
 * Host system: Ubuntu 16.04
 * Target system: Ubuntu mate 16.04
 * Cross compiler: Linaro GNU toolchain 5.31
 
-## Insturctions
+## Instructions
 
 ### 1.Install Linaro GNU toolchain
 ### 2.Prepare target root files system
-### 3.Do cross compiling and have fun!
+### 3.Do cross compile and have fun!
 
 sh ./setup.sh
 
@@ -17,11 +17,11 @@ cd ros2_ws
 
 make cross-compile
 
-##Issue
+##Issues
 
-###Can only compile without test functions and examples
+###Can only compile without test code and examples
 
-##Reference
+##References
 
 ### Linaro toolchain
 
@@ -30,7 +30,7 @@ make cross-compile
 
 ###Cross Compiler
 
-C++11 requirescompiler architecture level higher than "armv6":
+C++11 requires compiler architecture level higher than "armv6":
 
 * https://blog.kitware.com/cross-compiling-for-raspberry-pi/
 
@@ -39,13 +39,13 @@ C++11 requirescompiler architecture level higher than "armv6":
 * https://www.raspberrypi.org/forums/viewtopic.php?f=33&t=123177
 * https://github.com/raspberrypi/tools/issues/42
 
-###Copy target root file system
+###Root file system
 
-Copy the root file system directly from SD card may break the symbolic link of your copied root file system, please check this Stack Overflow thread to see how to deal with this problem by using "rsync" command:
+After copy the rootfs, you will need to fix the broken symlink, execute the shell script "fixQualifiedLibraryPaths" after copy the rootfs will help you solve the problem:
 
 * http://stackoverflow.com/questions/19162072/installing-raspberry-pi-cross-compiler/19269715#19269715
 
-###pkg-config wrapper for cross compiling
+###pkg-config wrapper
 
 * http://stackoverflow.com/questions/38038490/cmake-cross-compile-cant-find-library?answertab=active#tab-top 
 * https://autotools.io/pkgconfig/cross-compiling.html
@@ -53,6 +53,10 @@ Copy the root file system directly from SD card may break the symbolic link of y
 ###Fixing -rpath-link issues with cross-compilers
 
 * https://sysprogs.com/w/fixing-rpath-link-issues-with-cross-compilers/
+
+###ROS1 Bridge
+
+* https://github.com/ros2/ros1_bridge
 
 ###Else
 
