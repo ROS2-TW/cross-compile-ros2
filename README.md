@@ -33,6 +33,11 @@ to "#include <../arm-linux-gnueabihf/python3.5m/pyconfig.h>"
 
 ##Reference
 
+### Linaro toolchain
+
+* https://releases.linaro.org/components/toolchain/binaries/5.3-2016.05/arm-linux-gnueabihf/
+* https://releases.linaro.org/components/toolchain/binaries/5.3-2016.05/
+
 ###Build custom cross compiler
 In order to fully enable the C++11 functionality, we decide to compile the cross compiler. The following article could help you if you need to do so: 
 
@@ -46,7 +51,7 @@ ct-ng menuconfig:
  * Set "Floating point" to "hardware (FPU)"
 
 * Toolchain options
- * Set "Tuple's vendor string" to "none"
+ * Set "Tuple's vendor string" to "rpi"
 
 * C compiler:
  * Check "C++"
