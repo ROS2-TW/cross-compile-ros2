@@ -33,6 +33,11 @@ to "#include <../arm-linux-gnueabihf/python3.5m/pyconfig.h>"
 
 ##Reference
 
+### Linaro toolchain
+
+* https://releases.linaro.org/components/toolchain/binaries/5.3-2016.05/arm-linux-gnueabihf/
+* https://releases.linaro.org/components/toolchain/binaries/5.3-2016.05/
+
 ###Build custom cross compiler
 In order to fully enable the C++11 functionality, we decide to compile the cross compiler. The following article could help you if you need to do so: 
 
@@ -46,7 +51,7 @@ ct-ng menuconfig:
  * Set "Floating point" to "hardware (FPU)"
 
 * Toolchain options
- * Set "Tuple's vendor string" to "none"
+ * Set "Tuple's vendor string" to "rpi"
 
 * C compiler:
  * Check "C++"
@@ -66,5 +71,13 @@ Copy the root file system directly from SD card may break the symbolic link of y
 
 ###Fixing -rpath-link issues with cross-compilers
 
-* https://sysprogs.com/w/fixing-rpath-link-issues-with-cross-compilers/ 
+* https://sysprogs.com/w/fixing-rpath-link-issues-with-cross-compilers/
 
+###Multi-Arch issue
+
+* https://www.raspberrypi.org/forums/viewtopic.php?f=33&t=123177
+* https://github.com/raspberrypi/tools/issues/42
+
+###Else
+
+* http://stackoverflow.com/questions/22255975/cross-compile-opencv-project-on-ubuntu-for-raspberry-pi
