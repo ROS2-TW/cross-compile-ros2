@@ -44,6 +44,12 @@ include_directories(${TARGET_ROOT}/usr/include/python3.5m/)
 
 set(PYTHON_MULTIARCH arm-linux-gnueabihf)
 
+set(
+  CMAKE_PREFIX_PATH
+  ${CMAKE_PREFIX_PATH}
+  ${TARGET_ROOT}/usr/local/lib/cmake
+)
+
 SET(FLAGS "-Wl,-rpath-link,${TARGET_ROOT}/opt/vc/lib -Wl,-rpath-link,${TARGET_ROOT}/lib/arm-linux-gnueabihf -Wl,-rpath-link,${TARGET_ROOT}/usr/lib/arm-linux-gnueabihf -Wl,-rpath-link,${TARGET_ROOT}/usr/local/lib")
 
 UNSET(CMAKE_C_FLAGS CACHE)
