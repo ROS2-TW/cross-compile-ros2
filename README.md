@@ -78,3 +78,6 @@ Copy the root file system directly from SD card may break the symbolic link of y
 * https://www.raspberrypi.org/forums/viewtopic.php?f=33&t=123177
 * https://github.com/raspberrypi/tools/issues/42
 
+###Else
+
+* http://stackoverflow.com/questions/22255975/cross-compile-opencv-project-on-ubuntu-for-raspberry-pi
