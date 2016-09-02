@@ -39,6 +39,7 @@ adjustSymLinks $ROOTFS/lib ".."
 adjustSymLinks $ROOTFS/usr/lib "../.."
 adjustSymLinks $ROOTFS/usr/lib/arm-linux-gnueabihf "../../.."
 adjustSymLinks $ROOTFS/etc/alternatives "../.."
+adjustSymLinks $ROOTFS/usr/lib/pkgconfig "../../.."
 
 echo "Testing for existence of potential debian multi-arch dir: $DEB_MULTI_ARCH_MADNESS"
 
