@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#pkg-config wrapper
+
+ROOTFS=$(realpath ../rootfs)
+
+export PKG_CONFIG_DIR=
+export PKG_CONFIG_LIBDIR=${ROOTFS}/usr/lib/arm-linux-gnueabihf/pkgconfig:${ROOTFS}/opt/ros/kinetic/lib/pkgconfig:${ROOTFS}/usr/lib/pkgconfig
+export PKG_CONFIG_SYSROOT_DIR=${ROOTFS}
+
+pkg-config $@
