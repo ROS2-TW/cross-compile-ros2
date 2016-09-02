@@ -66,5 +66,10 @@ Copy the root file system directly from SD card may break the symbolic link of y
 
 ###Fixing -rpath-link issues with cross-compilers
 
-* https://sysprogs.com/w/fixing-rpath-link-issues-with-cross-compilers/ 
+* https://sysprogs.com/w/fixing-rpath-link-issues-with-cross-compilers/
+
+###Multi-Arch issue
+
+* https://www.raspberrypi.org/forums/viewtopic.php?f=33&t=123177
+
 
