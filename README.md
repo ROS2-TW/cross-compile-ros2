@@ -17,6 +17,22 @@ cd ros2_ws
 
 make cross-compile
 
+###Hack ROS1 bridge
+
+####Modify ros1 pkg-config path
+
+cd ${ROOTFS}/opt/ros/kinetic/lib/
+
+cp -r pkgconfig/ pkgconfig-bak/
+
+cd pkgconfig/
+
+sudo grep -rl "\-l:\/usr\/lib\/arm-linux-gnueabihf\/" * | sudo xargs sed -i 's/\/usr\/lib\/arm-linux-gnueabihf\///g'
+
+###Modify ros1 cmake shared library path
+
+* http://stackoverflow.com/questions/6758963/find-and-replace-with-sed-in-directory-and-sub-directories
+
 ##Issues
 
 ###Can only compile without test code and examples
