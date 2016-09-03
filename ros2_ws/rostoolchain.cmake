@@ -17,7 +17,7 @@ set(TARGET_ROOT ${PROJECT_ROOT}/rootfs)
 
 set(CMAKE_C_COMPILER ${PROJECT_ROOT}/gcc-linaro-5.3.1-2016.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc)
 set(CMAKE_CXX_COMPILER  ${PROJECT_ROOT}/gcc-linaro-5.3.1-2016.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++)
-set(PKG_CONFIG_EXECUTABLE ${PROJECT_ROOT}/tools/arm-unknown-linux-gnueabihf-pkg-config)
+set(PKG_CONFIG_EXECUTABLE ${PROJECT_ROOT}/tools/arm-linux-gnueabihf-pkg-config)
 
 set(TARGET_ROOT ${PROJECT_ROOT}/rootfs)
 
@@ -26,11 +26,6 @@ set(CMAKE_FIND_ROOT_PATH ${TARGET_ROOT})
 
 set(BOOST_INCLUDEDIR ${TARGET_ROOT}/usr/include/boost/)
 set(BOOST_LIBRARYDIR ${TARGET_ROOT}/usr/lib/arm-linux-gnueabihf/)
-
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${TARGET_ROOT}/opt/ros/kinetic/share/roscpp)
-set(roscpp_PREFIX ${TARGET_ROOT}/opt/ros/kinetic/share/roscpp)
-set(roscpp_INCLUDEDIR ${TARGET_ROOT}/opt/ros/kinetic/include/roscpp)
-set(roscpp_LIBDIR ${TARGET_ROOT}/opt/ros/kinetic/lib)
 
 #cmake --help-module FindPythonLibs | tail -10
 set(PYTHON_LIBRARY ${TARGET_ROOT}/usr/lib/python3.5/config-3.5m-arm-linux-gnueabihf/)
@@ -48,9 +43,10 @@ set(
   CMAKE_PREFIX_PATH
   ${CMAKE_PREFIX_PATH}
   ${TARGET_ROOT}/usr/local/lib/cmake
+  ${TARGET_ROOT}/opt/ros/kinetic
 )
 
-SET(FLAGS "-Wl,-rpath-link,${TARGET_ROOT}/opt/vc/lib -Wl,-rpath-link,${TARGET_ROOT}/lib/arm-linux-gnueabihf -Wl,-rpath-link,${TARGET_ROOT}/usr/lib/arm-linux-gnueabihf -Wl,-rpath-link,${TARGET_ROOT}/usr/local/lib")
+SET(FLAGS "-Wl,-rpath-link,${TARGET_ROOT}/opt/vc/lib -Wl,-rpath-link,${TARGET_ROOT}/lib/arm-linux-gnueabihf -Wl,-rpath-link,${TARGET_ROOT}/usr/lib/arm-linux-gnueabihf -Wl,-rpath-link,${TARGET_ROOT}/usr/local/lib -Wl,-rpath-link,${TARGET_ROOT}/opt/ros/kinetic/lib")
 
 UNSET(CMAKE_C_FLAGS CACHE)
 UNSET(CMAKE_CXX_FLAGS CACHE)
