@@ -7,7 +7,7 @@
 
 ## How to
 
-#### Setup rootfs and cross compiler
+### Setup rootfs and cross compiler
 
 > sh ./setup.sh
 
@@ -19,23 +19,19 @@
 
 ### Compile ros1_bridge
 
-#### setup environment
+#### Setup environment
 
 > cd tools/
 
 > source set_ros1_env.sh
 
-#### build 
+#### Build 
 
 > cd ros2_ws
 
 > rm -rf ros2_ws/build/ros1_bridge
 
 > make bridge
-
-###Modify ros1 cmake shared library path
-
-* http://stackoverflow.com/questions/6758963/find-and-replace-with-sed-in-directory-and-sub-directories
 
 ##Issues
 
@@ -77,6 +73,10 @@ After copy the rootfs, you will need to fix the broken symlink, execute the shel
 ###ROS1 Bridge
 
 * https://github.com/ros2/ros1_bridge
+
+###Modify ros1's cmake shared library path
+
+* http://stackoverflow.com/questions/6758963/find-and-replace-with-sed-in-directory-and-sub-directories
 
 ###Else
 
