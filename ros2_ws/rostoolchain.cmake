@@ -10,7 +10,9 @@ set(COMPILE_EXAMPLES 0)
 set(CMAKE_VERBOSE_MAKEGILE ON)
 
 #Get parent directory
-set(PROJECT_ROOT /home/shengwen-asus/cross-compile-ros2/)
+#set(PROJECT_ROOT /home/shengwen-asus/cross-compile-ros2/)
+#get_filename_component(PROJECT_ROOT ${PROJECT_ROOT} DIRECTORY)
+set(PROJECT_ROOT ${CMAKE_CURRENT_LIST_DIR})
 
 set(TARGET_ROOT ${PROJECT_ROOT}/rootfs)
 
