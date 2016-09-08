@@ -9,6 +9,12 @@
 
 ### Setup rootfs and cross compiler
 
+Download rootfs from here:
+
+* https://drive.google.com/uc?export=download&id=0B2DQhcp-s6aobGhJX0NnU25VZm8
+
+> mv $DOWNLOAD_PATH/rootfs.zip cross-compile-ros2/
+
 > sh ./setup.sh
 
 ### Do cross compile (without ros1_bridge)
