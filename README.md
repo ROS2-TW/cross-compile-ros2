@@ -17,13 +17,7 @@ Download rootfs from here:
 
 > sh ./setup.sh
 
-### Do cross compile (without ros1_bridge)
-
-> cd ros2_ws
-
-> make cross-compile
-
-### Compile ros1_bridge
+### Do cross compile (with ros1_bridge)
 
 #### Setup environment
 
@@ -35,9 +29,15 @@ Download rootfs from here:
 
 > cd ros2_ws
 
-> rm -rf ros2_ws/build/ros1_bridge
+> make cross-compile
 
-> make bridge
+##Trobleshotting
+
+####1. fatal error: sensor_msgs/msg/XXX: No such file or directory
+
+> make sensor_msgs
+
+> make cross-compile
 
 ##Issues
 
