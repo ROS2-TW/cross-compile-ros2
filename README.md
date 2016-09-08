@@ -5,29 +5,33 @@
 * Target system: Ubuntu mate 16.04
 * Cross compiler: Linaro GNU toolchain 5.31
 
-## Instructions
+## How to
 
-### 1.Install Linaro GNU toolchain
-### 2.Prepare target root files system
-### 3.Do cross compile and have fun!
+#### Setup rootfs and cross compiler
 
-sh ./setup.sh
+> sh ./setup.sh
 
-cd ros2_ws
+### Do cross compile (without ros1_bridge)
 
-make cross-compile
+> cd ros2_ws
 
-###Hack ROS1 bridge
+> make cross-compile
 
-####Modify ros1 pkg-config path
+### Compile ros1_bridge
 
-cd ${ROOTFS}/opt/ros/kinetic/lib/
+#### setup environment
 
-cp -r pkgconfig/ pkgconfig-bak/
+> cd tools/
 
-cd pkgconfig/
+> source set_ros1_env.sh
 
-sudo grep -rl "\-l:\/usr\/lib\/arm-linux-gnueabihf\/" * | sudo xargs sed -i 's/\/usr\/lib\/arm-linux-gnueabihf\///g'
+#### build 
+
+> cd ros2_ws
+
+> rm -rf ros2_ws/build/ros1_bridge
+
+> make bridge
 
 ###Modify ros1 cmake shared library path
 
@@ -77,3 +81,4 @@ After copy the rootfs, you will need to fix the broken symlink, execute the shel
 ###Else
 
 * http://stackoverflow.com/questions/22255975/cross-compile-opencv-project-on-ubuntu-for-raspberry-pi
+* https://gist.github.com/esteve/a2955dc681c46ac9f8a9222adb239284
