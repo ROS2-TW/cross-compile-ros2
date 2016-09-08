@@ -6,3 +6,9 @@ wget -nc  https://releases.linaro.org/components/toolchain/binaries/5.3-2016.05/
 #Compress the toolchain
 tar xvf gcc-linaro-5.3.1-2016.05-x86_64_arm-linux-gnueabihf.tar.xz
 
+#Downdload root file system
+
+#Copy ros2_ws
+
+#Create symbolic link
+ln -s rootfs/workspace/ros2_ws/ ros2_ws
