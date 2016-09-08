@@ -27,6 +27,21 @@ set(CMAKE_FIND_ROOT_PATH ${TARGET_ROOT})
 set(BOOST_INCLUDEDIR ${TARGET_ROOT}/usr/include/boost/)
 set(BOOST_LIBRARYDIR ${TARGET_ROOT}/usr/lib/arm-linux-gnueabihf/)
 
+set(
+  CMAKE_PREFIX_PATH
+  ${CMAKE_PREFIX_PATH}
+  ${TARGET_ROOT}/usr/local/lib/cmake
+#  ${TARGET_ROOT}/opt/ros/kinetic
+)
+
+SET(FLAGS "-Wl,-rpath-link,${TARGET_ROOT}/opt/vc/lib -Wl,-rpath-link,${TARGET_ROOT}/lib/arm-linux-gnueabihf -Wl,-rpath-link,${TARGET_ROOT}/usr/lib/arm-linux-gnueabihf -Wl,-rpath-link,${TARGET_ROOT}/usr/local/lib -Wl,-rpath-link,${TARGET_ROOT}/opt/ros/kinetic/lib")
+
+UNSET(CMAKE_C_FLAGS CACHE)
+UNSET(CMAKE_CXX_FLAGS CACHE)
+
+SET(CMAKE_CXX_FLAGS ${FLAGS} CACHE STRING "" FORCE)
+SET(CMAKE_C_FLAGS ${FLAGS} CACHE STRING "" FORCE)
+
 #cmake --help-module FindPythonLibs | tail -10
 set(PYTHON_LIBRARY ${TARGET_ROOT}/usr/lib/python3.5/config-3.5m-arm-linux-gnueabihf/)
 set(
@@ -38,18 +53,3 @@ set(
 include_directories(${TARGET_ROOT}/usr/include/python3.5m/)
 
 set(PYTHON_MULTIARCH arm-linux-gnueabihf)
-
-set(
-  CMAKE_PREFIX_PATH
-  ${CMAKE_PREFIX_PATH}
-  ${TARGET_ROOT}/usr/local/lib/cmake
-  ${TARGET_ROOT}/opt/ros/kinetic
-)
-
-SET(FLAGS "-Wl,-rpath-link,${TARGET_ROOT}/opt/vc/lib -Wl,-rpath-link,${TARGET_ROOT}/lib/arm-linux-gnueabihf -Wl,-rpath-link,${TARGET_ROOT}/usr/lib/arm-linux-gnueabihf -Wl,-rpath-link,${TARGET_ROOT}/usr/local/lib -Wl,-rpath-link,${TARGET_ROOT}/opt/ros/kinetic/lib")
-
-UNSET(CMAKE_C_FLAGS CACHE)
-UNSET(CMAKE_CXX_FLAGS CACHE)
-
-SET(CMAKE_CXX_FLAGS ${FLAGS} CACHE STRING "" FORCE)
-SET(CMAKE_C_FLAGS ${FLAGS} CACHE STRING "" FORCE)
