@@ -7,4 +7,4 @@ HOST=raspi #e.g: 192.168.X.X
 rsync -rl --delete-after --info=progress2  ubuntu@raspi:/{lib,usr,opt,etc} ../rootfs/
 
 #Step.2: Replace rootfs abosulted path to related path
-./fixQualifiedLibraryPaths ../rootfs ../cross_compiler/arm-rpi-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc
+./fixQualifiedLibraryPaths ../rootfs ../cross_compiler/bin/arm-linux-gnueabihf-gcc
