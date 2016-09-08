@@ -39,6 +39,10 @@ Download rootfs from here:
 
 > make cross-compile
 
+####2. Permission denied
+
+> chown -R username rootfs
+
 ##Issues
 
 Can only compile without test code and examples
