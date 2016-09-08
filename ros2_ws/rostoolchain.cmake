@@ -10,8 +10,7 @@ set(COMPILE_EXAMPLES 0)
 set(CMAKE_VERBOSE_MAKEGILE ON)
 
 #Get parent directory
-set(PROJECT_ROOT ${CMAKE_CURRENT_LIST_DIR})
-get_filename_component(PROJECT_ROOT ${PROJECT_ROOT} DIRECTORY)
+set(PROJECT_ROOT /home/shengwen-asus/cross-compile-ros2/)
 
 set(TARGET_ROOT ${PROJECT_ROOT}/rootfs)
 
@@ -34,7 +33,7 @@ set(
 #  ${TARGET_ROOT}/opt/ros/kinetic
 )
 
-SET(FLAGS "-Wl,-rpath-link,${TARGET_ROOT}/opt/vc/lib -Wl,-rpath-link,${TARGET_ROOT}/lib/arm-linux-gnueabihf -Wl,-rpath-link,${TARGET_ROOT}/usr/lib/arm-linux-gnueabihf -Wl,-rpath-link,${TARGET_ROOT}/usr/local/lib -Wl,-rpath-link,${TARGET_ROOT}/opt/ros/kinetic/lib")
+SET(FLAGS "-isystem ${TARGET_ROOT}/opt/ros/kinetic/include/ -Wl,-rpath-link,${TARGET_ROOT}/opt/vc/lib -Wl,-rpath-link,${TARGET_ROOT}/lib/arm-linux-gnueabihf -Wl,-rpath-link,${TARGET_ROOT}/usr/lib/arm-linux-gnueabihf -Wl,-rpath-link,${TARGET_ROOT}/usr/local/lib -Wl,-rpath-link,${TARGET_ROOT}/opt/ros/kinetic/lib")
 
 UNSET(CMAKE_C_FLAGS CACHE)
 UNSET(CMAKE_CXX_FLAGS CACHE)
@@ -51,5 +50,6 @@ set(
 )
 
 include_directories(${TARGET_ROOT}/usr/include/python3.5m/)
+
 
 set(PYTHON_MULTIARCH arm-linux-gnueabihf)
