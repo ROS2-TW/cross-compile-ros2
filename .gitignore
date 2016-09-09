@@ -1,2 +1,6 @@
 build
 install
+cross_compiler
+rootfs
+*.tar.xz
+*.zip
