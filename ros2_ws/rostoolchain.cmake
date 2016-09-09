@@ -10,7 +10,7 @@ set(COMPILE_EXAMPLES 0)
 set(CMAKE_VERBOSE_MAKEGILE ON)
 
 #Get parent directory
-set(PROJECT_ROOT /home/shengwen-asus/cross-compile-ros2/)
+set(PROJECT_ROOT /home/shengwen-asus/cross-compile-ros2)
 #get_filename_component(PROJECT_ROOT ${PROJECT_ROOT} DIRECTORY)
 #set(PROJECT_ROOT ${CMAKE_CURRENT_LIST_DIR})
 
@@ -35,7 +35,16 @@ set(
 #  ${TARGET_ROOT}/opt/ros/kinetic
 )
 
-SET(FLAGS "-isystem ${TARGET_ROOT}/opt/ros/kinetic/include/ -Wl,-rpath-link,${TARGET_ROOT}/opt/vc/lib -Wl,-rpath-link,${TARGET_ROOT}/lib/arm-linux-gnueabihf -Wl,-rpath-link,${TARGET_ROOT}/usr/lib/arm-linux-gnueabihf -Wl,-rpath-link,${TARGET_ROOT}/usr/local/lib -Wl,-rpath-link,${TARGET_ROOT}/opt/ros/kinetic/lib")
+SET(FLAGS
+  "-isystem ${TARGET_ROOT}/opt/ros/kinetic/include/ \
+  -Wl,-rpath-link,${TARGET_ROOT}/usr/lib/arm-linux-gnueabihf/mesa \
+  -Wl,-rpath-link,${TARGET_ROOT}/lib/arm-linux-gnueabihf/mesa-egl \
+  -Wl,-rpath-link,${TARGET_ROOT}/opt/vc/lib \
+  -Wl,-rpath-link,${TARGET_ROOT}/lib/arm-linux-gnueabihf \
+  -Wl,-rpath-link,${TARGET_ROOT}/usr/lib/arm-linux-gnueabihf \
+  -Wl,-rpath-link,${TARGET_ROOT}/usr/local/lib \
+  -Wl,-rpath-link,${TARGET_ROOT}/opt/ros/kinetic/lib"
+)
 
 UNSET(CMAKE_C_FLAGS CACHE)
 UNSET(CMAKE_CXX_FLAGS CACHE)
