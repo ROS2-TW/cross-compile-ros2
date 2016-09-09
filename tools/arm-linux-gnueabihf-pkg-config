@@ -7,6 +7,6 @@ ROS2_WS_PATH=$(realpath ../ros2_ws)
 
 export PKG_CONFIG_DIR=
 export PKG_CONFIG_LIBDIR=${ROS2_WS_PATH}/install/lib/pkgconfig:${ROOTFS}/usr/lib/arm-linux-gnueabihf/pkgconfig:${ROOTFS}/opt/ros/kinetic/lib/pkgconfig:${ROOTFS}/usr/lib/pkgconfig
-export PKG_CONFIG_SYSROOT_DIR=${ROOTFS}:${ROS2_WS_PATH}
+export PKG_CONFIG_SYSROOT_DIR=${ROOTFS}
 
 pkg-config $@
