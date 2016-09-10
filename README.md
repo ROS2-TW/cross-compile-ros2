@@ -31,6 +31,30 @@ Download rootfs from here:
 
 > make cross-compile
 
+## Execute result on target machine
+
+#### Fix broken symlink
+
+Copy file "resolve_target_symlink.sh" into target "ros2_ws" and execute it:
+
+> sh ./resolve_target_symlink.sh
+
+#### Setup environment variables
+
+Edit the file "~/.bashrc" and insert:
+
+> export OSPL_URI=file:///usr/etc/opensplice/config/ospl.xml
+
+> export LD_LIBRARY_PATH=~/ros2_ws/install/lib:$LD_LIBRARY_PATH
+
+now, execute the ldconfig and reboot:
+
+> sudo ldconfig
+
+> sudo reboot
+
+then you are ready to go.
+
 ##Trobleshotting
 
 ####1. fatal error: sensor_msgs/msg/XXX: No such file or directory
