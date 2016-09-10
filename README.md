@@ -1,11 +1,11 @@
-# ROS2 Cross compiling
+#ROS2 Cross compiling
 
 ##Tested environment
 * Host system: Ubuntu 16.04
 * Target system: Ubuntu mate 16.04
 * Cross compiler: Linaro GNU toolchain 5.31
 
-## How to
+##How to
 
 ### Setup rootfs and cross compiler
 
@@ -13,59 +13,89 @@ Download rootfs from here:
 
 * https://drive.google.com/uc?export=download&id=0B2DQhcp-s6aobGhJX0NnU25VZm8
 
-> mv $DOWNLOAD_PATH/rootfs.zip cross-compile-ros2/
+####Move rootfs into project directory
 
-> sh ./setup.sh
+```
+git clone https://github.com/ncku-ros2-research/cross-compile-ros2.git
+
+cd cross-compile-ros2
+
+mv $DOWNLOAD_PATH/rootfs.zip cross-compile-ros2/
+
+sh ./setup.sh
+```
 
 ### Do cross compile (with ros1_bridge)
 
-#### Setup environment
+####1. Setup environment
 
-> cd tools/
+```
+cd tools/
 
-> source set_ros1_env.sh
+source set_ros1_env.sh
+```
 
-#### Build 
+####2. Build 
 
-> cd ros2_ws
+```
+cd rootfs/workspace/ros2_ws
 
-> make cross-compile
+make cross-compile
+```
 
-## Execute result on target machine
+####3. Deploy to taget machine
 
-#### Fix broken symlink
+Default: ubuntu@raspi
+
+```
+sh ./target_deploy.sh
+```
+
+###Execute compiled result on target machine
+
+####1.Fix broken symlink
 
 Copy file "resolve_target_symlink.sh" into target "ros2_ws" and execute it:
 
-> sh ./resolve_target_symlink.sh
+```
+sh ./resolve_target_symlink.sh
+```
 
-#### Setup environment variables
+####2.Setup environment variables
 
 Edit the file "~/.bashrc" and insert:
 
-> export OSPL_URI=file:///usr/etc/opensplice/config/ospl.xml
+```
+export OSPL_URI=file:///usr/etc/opensplice/config/ospl.xml
 
-> export LD_LIBRARY_PATH=~/ros2_ws/install/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=~/ros2_ws/install/lib:$LD_LIBRARY_PATH
+```
 
 now, execute the ldconfig and reboot:
 
-> sudo ldconfig
+```
+sudo ldconfig
 
-> sudo reboot
+sudo reboot
+```
 
 then you are ready to go.
 
-##Trobleshotting
+###Trobleshotting
 
 ####1. fatal error: sensor_msgs/msg/XXX: No such file or directory
 
-> make sensor_msgs
+```
+make sensor_msgs
 
-> make cross-compile
+make cross-compile
+```
 
 ####2. Permission denied
 
-> chown -R username rootfs
+```
+chown -R username rootfs
+```
 
 ##Issues
 
@@ -73,7 +103,7 @@ Can only compile without test code and examples
 
 ##References
 
-#### Linaro toolchain
+####Linaro toolchain
 
 * https://releases.linaro.org/components/toolchain/binaries/5.3-2016.05/arm-linux-gnueabihf/
 * https://releases.linaro.org/components/toolchain/binaries/5.3-2016.05/
