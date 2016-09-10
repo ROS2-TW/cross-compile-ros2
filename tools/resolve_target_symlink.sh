@@ -3,7 +3,7 @@
 
 INITIAL_DIR=$PWD
 
-ROS2_WS=$(realpath ./ros2_ws)
+ROS2_WS=$(realpath ../ros2_ws)
 
 function adjust_symlinks
 {
