@@ -82,7 +82,7 @@ now, execute the ldconfig and reboot:
 ```
 sudo ldconfig
 
-sudo reboot
+source ~/.bashrc
 ```
 
 then you are ready to go.
