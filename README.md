@@ -53,7 +53,7 @@ sh ./target_deploy.sh
 
 ###Execute compiled result on target machine
 
-####1.Fix broken symlink
+####1. Fix broken symlink
 
 Copy file "resolve_target_symlink.sh" into target "ros2_ws" and execute it:
 
@@ -61,7 +61,7 @@ Copy file "resolve_target_symlink.sh" into target "ros2_ws" and execute it:
 sh ./resolve_target_symlink.sh
 ```
 
-####2.Setup environment variables
+####2. Setup environment variables
 
 Edit the file "~/.bashrc" and insert:
 
