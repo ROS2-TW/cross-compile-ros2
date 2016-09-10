@@ -9,11 +9,11 @@
 
 ### Setup rootfs and cross compiler
 
-Download rootfs from here:
+####1. Download the rootfs from here:
 
 * https://drive.google.com/uc?export=download&id=0B2DQhcp-s6aobGhJX0NnU25VZm8
 
-####Move rootfs into project directory
+####2. Move rootfs into project directory
 
 ```
 git clone https://github.com/ncku-ros2-research/cross-compile-ros2.git
@@ -21,7 +21,11 @@ git clone https://github.com/ncku-ros2-research/cross-compile-ros2.git
 cd cross-compile-ros2
 
 mv $DOWNLOAD_PATH/rootfs.zip cross-compile-ros2/
+```
 
+####3. Execute the setup script
+
+```
 sh ./setup.sh
 ```
 
@@ -69,6 +73,8 @@ Edit the file "~/.bashrc" and insert:
 export OSPL_URI=file:///usr/etc/opensplice/config/ospl.xml
 
 export LD_LIBRARY_PATH=~/ros2_ws/install/lib:$LD_LIBRARY_PATH
+
+export PATH=$PATH:~/ros2_ws/install/bin/
 ```
 
 now, execute the ldconfig and reboot:
@@ -76,7 +82,7 @@ now, execute the ldconfig and reboot:
 ```
 sudo ldconfig
 
-sudo reboot
+source ~/.bashrc
 ```
 
 then you are ready to go.
