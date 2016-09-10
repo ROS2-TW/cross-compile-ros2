@@ -73,6 +73,8 @@ Edit the file "~/.bashrc" and insert:
 export OSPL_URI=file:///usr/etc/opensplice/config/ospl.xml
 
 export LD_LIBRARY_PATH=~/ros2_ws/install/lib:$LD_LIBRARY_PATH
+
+export PATH=$PATH:~/ros2_ws/install/bin/
 ```
 
 now, execute the ldconfig and reboot:
