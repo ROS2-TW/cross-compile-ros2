@@ -5,6 +5,10 @@
 * Target system: Ubuntu mate 16.04
 * Cross compiler: Linaro GNU toolchain 5.31
 
+####Raspberry pi image
+
+* https://drive.google.com/uc?export=download&id=0B2DQhcp-s6aocHFfOXFpbVFtWEk
+
 ##How to
 
 ### Setup rootfs and cross compiler
@@ -76,7 +80,7 @@ export LD_LIBRARY_PATH=~/ros2_ws/install/lib:$LD_LIBRARY_PATH
 export PATH=$PATH:~/ros2_ws/install/bin/
 ```
 
-now, execute the ldconfig and reboot:
+now, type the following commands:
 
 ```
 sudo ldconfig
