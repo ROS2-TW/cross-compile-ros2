@@ -59,10 +59,9 @@ sh ./target_deploy.sh
 
 ####1. Fix broken symlink
 
-Copy file "resolve_target_symlink.sh" into target "ros2_ws" and execute it:
-
 ```
-sh ./resolve_target_symlink.sh
+cd ros2_ws
+./resolve_target_symlink.sh
 ```
 
 ####2. Setup environment variables
