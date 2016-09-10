@@ -3,7 +3,7 @@
 
 INITIAL_DIR=$PWD
 
-ROS2_WS=$(realpath ../ros2_ws)
+ROS2_WS=$(realpath ./ros2_ws)
 
 function adjust_symlinks
 {
@@ -31,3 +31,4 @@ function adjust_symlinks
 
 adjust_symlinks $ROS2_WS/install
 adjust_symlinks $ROS2_WS/install/lib
+adjust_symlinks $ROS2_WS/install/bin
