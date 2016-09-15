@@ -9,6 +9,8 @@
 
 * https://drive.google.com/uc?export=download&id=0B2DQhcp-s6aocHFfOXFpbVFtWEk
 
+Default **username** and **password** are both ```ubuntu```
+
 ##How to
 
 ### Setup rootfs and cross compiler
