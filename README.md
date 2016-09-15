@@ -37,6 +37,18 @@ sh ./setup.sh
 
 ### Do cross compile (with ros1_bridge)
 
+####Update ros1_bridge
+
+The ros1_bridge at current version (alpha 7) exists bug and need to be updated:
+
+```
+cd cross-compile-ros2/rootfs/workspace/ros2_ws/src/ros2/ros1_bridge
+
+git pull origin master
+```
+
+* please read: https://github.com/ros2/ros1_bridge/issues/30
+
 ####1. Setup environment
 
 ```
@@ -67,6 +79,7 @@ sh ./target_deploy.sh
 
 ```
 cd ros2_ws
+
 ./resolve_target_symlink.sh
 ```
 
