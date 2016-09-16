@@ -17,7 +17,7 @@ Default **username** and **password** are both ```ubuntu```
 
 ####1. Download the rootfs from here:
 
-* https://drive.google.com/uc?export=download&id=0B2DQhcp-s6aobGhJX0NnU25VZm8
+* https://drive.google.com/uc?export=download&id=0B2DQhcp-s6aoWjRMRUtOU0VyVkU
 
 ####2. Move rootfs into project directory
 
