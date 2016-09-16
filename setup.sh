@@ -7,8 +7,11 @@ wget -nc  https://releases.linaro.org/components/toolchain/binaries/5.3-2016.05/
 tar xvf gcc-linaro-5.3.1-2016.05-x86_64_arm-linux-gnueabihf.tar.xz
 mv gcc-linaro-5.3.1-2016.05-x86_64_arm-linux-gnueabihf cross_compiler
 
-#unzip rootfs
-unzip rootfs.zip
+#decompress rootfs
+tar Jxvf rootfs.tar.xz
+cd tools
+sh fix_ros1_so.sh
+cd ..
 
 #Copy ros2_ws
 mkdir -p rootfs/workspace
