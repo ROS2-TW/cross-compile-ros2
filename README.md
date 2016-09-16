@@ -5,13 +5,19 @@
 * Target system: Ubuntu mate 16.04
 * Cross compiler: Linaro GNU toolchain 5.31
 
+####Raspberry pi image
+
+* https://drive.google.com/uc?export=download&id=0B2DQhcp-s6aocHFfOXFpbVFtWEk
+
+Default **username** and **password** are both ```ubuntu```
+
 ##How to
 
 ### Setup rootfs and cross compiler
 
 ####1. Download the rootfs from here:
 
-* https://drive.google.com/uc?export=download&id=0B2DQhcp-s6aobGhJX0NnU25VZm8
+* https://drive.google.com/uc?export=download&id=0B2DQhcp-s6aoWjRMRUtOU0VyVkU
 
 ####2. Move rootfs into project directory
 
@@ -30,6 +36,18 @@ sh ./setup.sh
 ```
 
 ### Do cross compile (with ros1_bridge)
+
+####Update ros1_bridge
+
+The ros1_bridge at current version (alpha 7) exists bug and need to be updated:
+
+```
+cd cross-compile-ros2/rootfs/workspace/ros2_ws/src/ros2/ros1_bridge
+
+git pull origin master
+```
+
+* please read: https://github.com/ros2/ros1_bridge/issues/30
 
 ####1. Setup environment
 
@@ -59,10 +77,10 @@ sh ./target_deploy.sh
 
 ####1. Fix broken symlink
 
-Copy file "resolve_target_symlink.sh" into target "ros2_ws" and execute it:
-
 ```
-sh ./resolve_target_symlink.sh
+cd ros2_ws
+
+./resolve_target_symlink.sh
 ```
 
 ####2. Setup environment variables
@@ -77,7 +95,7 @@ export LD_LIBRARY_PATH=~/ros2_ws/install/lib:$LD_LIBRARY_PATH
 export PATH=$PATH:~/ros2_ws/install/bin/
 ```
 
-now, execute the ldconfig and reboot:
+now, type the following commands:
 
 ```
 sudo ldconfig
