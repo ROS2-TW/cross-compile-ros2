@@ -3,7 +3,7 @@
 
 INITIAL_DIR=$PWD
 
-ROS2_WS=$(realpath ./ros2_ws)
+ROS2_WS=$(realpath ../ros2_ws)
 
 function adjust_symlinks
 {
@@ -32,3 +32,29 @@ function adjust_symlinks
 adjust_symlinks $ROS2_WS/install
 adjust_symlinks $ROS2_WS/install/lib
 adjust_symlinks $ROS2_WS/install/bin
+
+for enum_dir in $ROS2_WS/install/share/*
+do
+    adjust_symlinks $enum_dir/resource_index/parent_prefix_path
+    adjust_symlinks $enum_dir/resource_index/
+    adjust_symlinks $enum_dir/resource/
+    adjust_symlinks $enum_dir/
+    adjust_symlinks $enum_dir/cmake
+    adjust_symlinks $enum_dir/environment
+    adjust_symlinks $enum_dir/msg
+    adjust_symlinks $enum_dir/msg/dds_opensplice
+    adjust_symlinks $enum_dir/srv
+    adjust_symlinks $enum_dir/srv/dds_opensplice
+done
+
+for enum_dir in $ROS2_WS/install/include/*
+do
+    adjust_symlinks $enum_dir/
+    adjust_symlinks $enum_dir/msg
+    adjust_symlinks $enum_dir/msg/dds_opensplice_c
+    adjust_symlinks $enum_dir/msg/dds_opensplice
+    adjust_symlinks $enum_dir/srv
+    adjust_symlinks $enum_dir/srv/dds_opensplice_c
+    adjust_symlinks $enum_dir/srv/dds_opensplice
+    adjust_symlinks $enum_dir/imp
+done
